@@ -1,0 +1,341 @@
+.skills {
+  padding: 5rem 0;
+  background-color: var(--bg-primary);
+}
+
+.skillCategories {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.categoryTitle {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.skillItem {
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: 0.25s;
+  cursor: pointer;
+  border: 1px solid rgba(0,255,255,0.05);
+}
+
+.skillItem:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(0,255,255,0.15);
+  border-color: var(--accent-color);
+}
+
+.skillLogo {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.6rem;
+}
+
+.skillName {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+
+
+/* ============ MODAL ============ */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modalContent {
+  width: 92%;
+  max-width: 850px;
+  max-height: 90vh;
+  background: var(--bg-primary);
+  border-radius: 14px;
+  overflow-y: auto;
+  border: 1px solid rgba(0,255,255,0.08);
+  box-shadow: 0 0 25px rgba(0,255,255,0.15);
+  animation: slideUp 0.4s ease;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem;
+  border-bottom: 1px solid rgba(0,255,255,0.08);
+}
+
+.modalTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modalLogo {
+  width: 42px;
+  height: 42px;
+}
+
+.modalTitle {
+  margin: 0;
+  color: var(--accent-color);
+  font-size: 1.8rem;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.closeButton:hover {
+  color: var(--accent-color);
+}
+
+
+
+/* Description */
+.modalDescription {
+  padding: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.55;
+  border-bottom: 1px solid rgba(0,255,255,0.08);
+}
+
+
+
+/* ============ TABS ============ */
+.modalTabs {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  border-bottom: 1px solid rgba(0,255,255,0.05);
+}
+
+.tabButton {
+  padding: 1rem 1.3rem;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.25s;
+  white-space: nowrap;
+}
+
+.tabButton:hover {
+  color: var(--accent-color);
+  background: rgba(0,255,255,0.07);
+}
+
+.activeTab {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  font-weight: 700;
+}
+
+
+
+/* ============ TAB CONTENT ============ */
+.tabContent {
+  padding: 1.7rem;
+}
+
+
+/* DEMO TAB */
+.demoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+}
+
+.codeSnippet {
+  background: #111;
+  border-radius: 8px;
+  padding: 1rem;
+  color: #d4d4d4;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9rem;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.runButton {
+  background: var(--accent-color);
+  color: #000;
+  border: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.runButton:hover {
+  background: #00fefe;
+}
+
+.runButton:disabled {
+  background: #333;
+  color: #888;
+  cursor: not-allowed;
+}
+
+
+.progressBarOuter {
+  background: #222;
+  border-radius: 8px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.progressBarInner {
+  background: var(--accent-color);
+  height: 100%;
+  transition: width 0.1s linear;
+}
+
+
+/* OUTPUT */
+.outputContainer {
+  margin-top: 1rem;
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(0,255,255,0.06);
+}
+
+.codeOutput {
+  font-family: "Consolas", monospace;
+  color: var(--text-primary);
+  background: rgba(0,255,255,0.05);
+  padding: 0.7rem;
+  border-radius: 6px;
+}
+
+
+
+/* ============ PROJECTS TAB ============ */
+.projectsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.projectCard {
+  background: var(--bg-secondary);
+  padding: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(0,255,255,0.08);
+  transition: 0.25s;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,255,255,0.12);
+  border-color: var(--accent-color);
+}
+
+.projectInfo h4 {
+  color: var(--accent-color);
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.projectInfo p {
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.projectTechList {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.7rem;
+}
+
+.techTag {
+  padding: 0.25rem 0.6rem;
+  background: rgba(0,255,255,0.08);
+  color: var(--accent-color);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  border: 1px solid rgba(0,255,255,0.15);
+}
+
+
+
+/* EMPTY STATE */
+.emptyState {
+  color: var(--text-secondary);
+  padding: 1.5rem;
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  text-align: center;
+}
+
+
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .skillGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .modalContent {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .skillGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tabButton {
+    padding: 0.7rem 1rem;
+  }
+}

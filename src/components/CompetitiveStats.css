@@ -1,0 +1,160 @@
+/* === GLOBAL THEME COLORS === */
+:root {
+  --gold: #f7dba7;
+  --neon: #00eaff;
+  --glass: rgba(255, 255, 255, 0.03);
+  --text-light: #cfe8ea;
+}
+
+/* === SECTION === */
+.comp-section {
+  padding: 4rem 1rem 5rem;
+  position: relative;
+  text-align: center;
+  z-index: 5;
+}
+
+/* === TITLE === */
+.comp-title {
+  font-size: 2.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeSlide 1s ease forwards;
+  position: relative;
+}
+
+/* Neon Underline */
+.comp-title::after {
+  content: "";
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--neon),
+    transparent
+  );
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 30px;
+  filter: drop-shadow(0 0 6px var(--neon));
+  animation: glowPulse 2s infinite ease-in-out;
+}
+
+/* Sparkle Icon */
+.comp-title::before {
+  content: "✦";
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--neon);
+  animation: sparkle 1.6s infinite;
+}
+
+/* === GRID === */
+.comp-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  gap: 1.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/* === CARD === */
+.comp-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 255, 255, 0.05);
+  transition: 0.25s ease;
+}
+
+.comp-card h3 {
+  margin-bottom: 1rem;
+  color: var(--neon);
+  font-weight: 600;
+}
+
+.comp-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* === Glow Effect === */
+.glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.08), transparent 70%);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.comp-card:hover .glow {
+  opacity: 1;
+}
+
+/* === Tilt Hover === */
+.tilt:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+/* === COUNTERS === */
+.counter-row {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.counter-box {
+  text-align: center;
+  background: var(--glass);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 5px 20px rgba(0, 255, 255, 0.05);
+}
+
+.counter-box span {
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--neon);
+}
+
+.counter-box p {
+  margin-top: 4px;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(0.9); }
+  50% { opacity: 1; transform: translateX(-50%) scale(1.15); }
+}
+
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 6px var(--neon)); }
+  50% { filter: drop-shadow(0 0 14px var(--neon)); }
+  100% { filter: drop-shadow(0 0 6px var(--neon)); }
+}

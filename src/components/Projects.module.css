@@ -1,0 +1,380 @@
+/* Projects.module.css - Dark neon theme, responsive, modal-friendly */
+
+.projects {
+  padding: 4.5rem 0 6rem;
+  background: linear-gradient(180deg, rgba(5,8,10,1) 0%, rgba(12,18,22,1) 100%);
+  color: var(--text-primary);
+}
+
+/* container title uses your global .section-title class */
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 2.5rem auto 0;
+  padding: 0 1rem;
+}
+
+.projectCard {
+  background: linear-gradient(180deg, rgba(10,12,16,0.6), rgba(6,8,12,0.6));
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(0,255,255,0.06);
+  transition: transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s ease, border-color .28s ease;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  min-height: 380px;
+  position: relative;
+}
+
+.projectCard:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55), 0 0 40px rgba(0,255,255,0.03);
+  border-color: rgba(0,255,255,0.18);
+}
+
+/* Image area */
+.projectImageContainer {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.4));
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+
+.projectCard:hover .projectImage {
+  transform: scale(1.05);
+}
+
+.liveBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,255,255,0.12);
+  color: #00f5ff;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(0,255,255,0.08);
+}
+
+/* Info area */
+.projectInfo {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.projectInfo h3 {
+  margin: 0 0 0.6rem;
+  color: #00f5ff;
+  font-size: 1.25rem;
+  letter-spacing: -0.2px;
+}
+
+.projectDescription {
+  margin: 0 0 1rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+/* tech tags & links */
+.projectTechnologies {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.techTag {
+  background: rgba(0,255,255,0.06);
+  color: var(--text-secondary);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  border: 1px solid rgba(0,255,255,0.04);
+}
+
+.projectLinks {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: auto;
+}
+
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #00f5ff;
+  background: rgba(0,255,255,0.02);
+  border: 1px solid rgba(0,255,255,0.06);
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.projectLink:hover {
+  transform: translateY(-3px);
+  background: rgba(0,255,255,0.07);
+  box-shadow: 0 6px 18px rgba(0,255,255,0.04);
+}
+
+.demoLink {
+  background: linear-gradient(90deg, rgba(0,255,255,0.06), rgba(0,255,255,0.03));
+  border: 1px solid rgba(0,255,255,0.08);
+}
+
+/* View more button */
+.viewMoreContainer {
+  margin-top: 1.25rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.viewMoreButton {
+  background: rgba(0,255,255,0.06);
+  color: #00f5ff;
+  padding: 0.65rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0,255,255,0.08);
+  display: inline-flex;
+  gap: 0.6rem;
+  align-items: center;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.viewMoreButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,255,255,0.03);
+}
+
+/* ===== Modal / Preview styles ===== */
+.previewModal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6), rgba(0,0,0,0.85));
+  padding: 2rem;
+}
+
+/* centered modal card */
+.previewContent {
+  width: 100%;
+  max-width: 1100px;
+  height: 85vh;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(9,12,16,0.99), rgba(5,7,9,0.99));
+  border: 1px solid rgba(0,255,255,0.08);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.7), 0 0 30px rgba(0,255,255,0.03);
+}
+
+/* header */
+.previewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.previewHeader h3 {
+  margin: 0;
+  color: #00f5ff;
+  font-size: 1.25rem;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.previewLink {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  color: #b8f8ff;
+  border: 1px solid rgba(255,255,255,0.02);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.previewLink:hover { transform: translateY(-3px); }
+
+/* close */
+.closeButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+/* body (iframe or fallback) */
+.previewBody {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.iframeContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #0b0b0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* loader shown on top while iframe loading */
+.iframeLoader {
+  position: absolute;
+  z-index: 50;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--text-secondary);
+  background: rgba(0,0,0,0.45);
+  width: 120%;
+  height: 100%;
+  top: 0;
+  left: -10%;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.06);
+  border-top-color: #00f5ff;
+  animation: spin 1s linear infinite;
+}
+
+.loaderText {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.previewIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+/* fallback when iframe blocked */
+.noPreview {
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.fallbackImage {
+  max-width: 560px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5);
+}
+
+.fallbackActions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+/* footer row */
+.previewFooter {
+  padding: 12px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  gap: 12px;
+}
+
+.previewTechs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.techTagSmall {
+  font-size: 0.8rem;
+  padding: 6px 10px;
+  background: rgba(0,255,255,0.03);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  border: 1px solid rgba(0,255,255,0.02);
+}
+
+.previewMeta .metaNote {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* small screens */
+@media (max-width: 900px) {
+  .projectGrid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+  .projectCard { min-height: 360px; }
+  .previewContent { height: 88vh; max-width: 1000px; }
+  .projectImageContainer { height: 170px; }
+}
+
+@media (max-width: 560px) {
+  .projectGrid { grid-template-columns: 1fr; gap: 1rem; }
+  .previewContent { height: 94vh; border-radius: 12px; padding: 0; }
+  .previewHeader { padding: 12px 14px; }
+  .previewFooter { padding: 10px 12px; flex-direction: column; gap: 10px; }
+  .iframeLoader { width: 110%; left: -5%; }
+}

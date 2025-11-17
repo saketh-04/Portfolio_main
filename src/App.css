@@ -1,0 +1,12 @@
+:root {
+  --primary: #BE5103;      /* Pumpkin Orange */
+  --secondary: #8C4C1F;    /* Spiced Brown */
+  --accent: #544823;       /* Olive Brown */
+  --neutral-dark: #332216; /* Deep Brown */
+  
+  --neutral-light: #F9FAFB; /* Keep for background contrast */
+  --neutral-gray: #E5E7EB;
+  --text-dark: #111827;
+  --text-light: #FFFFFF;
+  --gradient: linear-gradient(135deg, #BE5103 0%, #8C4C1F 100%);
+}
